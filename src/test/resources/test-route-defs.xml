@@ -1,0 +1,25 @@
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="
+       http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://camel.apache.org/schema/spring http://camel.apache.org/schema/spring/camel-spring.xsd
+    ">
+ 
+ 	<!-- !!ATTENTION!!
+ 	  **
+ 	  ** THIS FILE SHOULD CONTAINS "TEST" ROUTES ONLY
+ 	  ** 
+ 	  -->
+ 
+    <routeContext id="myTestRoutes" xmlns="http://camel.apache.org/schema/spring">
+    	<route id="testStartRoute">
+			<from uri="direct:testStart" />
+			<to uri="direct:start" /> <!-- Call to the "PROD" route -->
+			<log message=">>>headers $simple{in.headers}" loggingLevel="INFO"/>
+			<filter>
+				<xpath>$foo = 'bar'</xpath>
+				<to uri="mock:result" />
+			</filter>
+		</route>
+    </routeContext>
+</beans>
