@@ -11,8 +11,11 @@ import org.springframework.test.context.ContextConfiguration;
 import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
-@ContextConfiguration(locations = { "/route-defs.xml", "/test-route-defs.xml",
-		"/test-camel-context-def.xml" })
+@ContextConfiguration(locations = { 
+	"/route-defs.xml", 
+	"/test-route-defs.xml",
+	"/test-camel-context-def.xml" 
+})
 @DirtiesContext
 public class FilterTest {
 
