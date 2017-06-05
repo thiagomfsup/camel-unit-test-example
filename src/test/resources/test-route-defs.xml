@@ -16,10 +16,7 @@
 			<from uri="direct:testStart" />
 			<to uri="direct:start" /> <!-- Call to the "PROD" route -->
 			<log message=">>>headers $simple{in.headers}" loggingLevel="INFO" />
-			<filter>
-				<xpath>$foo = 'BAR'</xpath>
-				<to uri="mock:result" />
-			</filter>
+			<to uri="mock:result" />
 		</route>
 	</routeContext>
 </beans>
